@@ -51,6 +51,7 @@ builder.Services.AddAuthorization();
 // Register services
 builder.Services.AddScoped<IProductService, ProductServiceImpl>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 // Configure Swagger
 builder.Services.AddEndpointsApiExplorer();
