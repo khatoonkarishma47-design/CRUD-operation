@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: productservice-api
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://+:8080
+      - key: UseInMemoryDatabase
+        value: "true"
+      - key: JwtSettings__SecretKey
+        generateValue: true
+      - key: JwtSettings__Issuer
+        value: ProductService
+      - key: JwtSettings__Audience
+        value: ProductServiceClient
