@@ -28,7 +28,7 @@ public class AuthService : IAuthService
         }
 
         var token = GenerateJwtToken(user);
-        var expiration = DateTime.UtcNow.AddHours(1);
+        var expiration = DateTime.UtcNow.AddMinutes(5);
 
         return new LoginResponse
         {
@@ -81,7 +81,7 @@ public class AuthService : IAuthService
             issuer: jwtSettings["Issuer"],
             audience: jwtSettings["Audience"],
             claims: claims,
-            expires: DateTime.UtcNow.AddHours(1),
+            expires: DateTime.UtcNow.AddMinutes(5),
             signingCredentials: credentials
         );
 
