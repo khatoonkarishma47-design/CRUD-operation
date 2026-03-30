@@ -181,23 +181,15 @@ builder.Services.AddSwaggerGen(c =>
 
 
 // Configure CORS for React UI
-
 builder.Services.AddCors(options =>
-
 {
-
     options.AddPolicy("AllowReactApp", policy =>
-
     {
-
-        policy.WithOrigins("http://localhost:3000", "http://localhost:5034")
-
+        policy.SetIsOriginAllowed(origin => true)
               .AllowAnyHeader()
-
-              .AllowAnyMethod();
-
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
-
 });
 
 
